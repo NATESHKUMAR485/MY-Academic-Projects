@@ -1,0 +1,10 @@
+BI
+Bimage2.jpg
+H2 aqua center
+About Myself
+para aqua center
+I am Natesh Kumar. I belong to a Middle class family, i am from Umerkot.
+H4 white center
+Click Back to return on Main Page.
+Link Back center
+"Index.html"

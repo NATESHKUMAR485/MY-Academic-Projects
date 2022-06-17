@@ -1,0 +1,10 @@
+BI
+Bimage1.jpg
+H1 aqua center
+My School:
+para aqua center
+I passed my intermediate form Bright Future Public School Umerkot, Now I am studing BSCS in IBA Karachi.
+H4 white center
+Click Back to return on Main Page.
+Link Back center
+"Index.html"

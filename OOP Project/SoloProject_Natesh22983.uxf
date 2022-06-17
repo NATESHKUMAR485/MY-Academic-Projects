@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>3</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>144</y>
+      <w>54</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>main::Frame
+--
+-frame: JFrame
++WIDTH = 464: int
++HEIGHT = 500: int
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>153</x>
+      <y>195</y>
+      <w>117</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>main::Controller
+--
+-thread: Thread
+-g: Graphics2D
+-image: BufferedImage
+-state = STATE.MENU: STATE
+-game: Board
+-gameOver: GameOver
+-winScreen: WinScreen
+-menu: MainMenu
+-pickLevel: PickLevel
++mousePoint = new Point(0, 0): Point
++bigFont = new Font("TimesRoman", Font.PLAIN, 25): Font
++smallFont = new Font("TimesRoman", Font.PLAIN, 18): Font
+-running = true: boolean
+-serialVersionUID = 1L: long
+-lastTime: long
+-fps: double
++score = 0: int
++level = 0: int
+--
++Controller(): ctor
++addNotify(): void
+-init(): void
++run(): void
+-display(): void
++switchStates(STATE state): void
++switchStates(STATE state, int level): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>177</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>320.0;10.0;320.0;50.0;10.0;50.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>267</x>
+      <y>195</y>
+      <w>42</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>339</x>
+      <y>222</y>
+      <w>96</w>
+      <h>87</h>
+    </coordinates>
+    <panel_attributes>main::ImageLoader
+--
+-ImageFG: BufferedImage
++titleF = "/BrickBreakerForeground2.png": String
++titleB = "/BrickBreakerBackground3.png": String
++PaddleImg = "/Paddle2.png": String
++BrickImg = "/Bricks7.png": String
++BallImg = "/Ball2.png": String
++FireBallImg = "/FireBall.png": String
++ArrowImg = "/Arrow.png": String
++PUMultiBallImg = "/PUMulitBall.png": String
++PUGrowthImg = "/PUGrowth.png": String
++PUFireballImg = "/PUFireball.png": String
+--
++ImageLoader(String path): ctor
++getImage(): BufferedImage
++getSubImage(int section): BufferedImage
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>267</x>
+      <y>195</y>
+      <w>102</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;320.0;10.0;320.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>438</x>
+      <y>222</y>
+      <w>114</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>main::MainMenu
+--
+-bounds = { new Rectangle(70, 310, 310, 55) }: Rectangle[]
+-titleScreenForeground: Image
+-titleScreenBackground: Image
+--
++MainMenu(): ctor
++tick(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>357</y>
+      <w>54</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>main::GameOver
+--
+-mainMenu: Rectangle
+-background: Image
+--
++GameOver(): ctor
++tick(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>267</x>
+      <y>357</y>
+      <w>54</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>main::WinScreen
+--
+-mainMenu: Rectangle
+-background: Image
+--
++WinScreen(): ctor
++tick(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>267</x>
+      <y>195</y>
+      <w>201</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;650.0;10.0;650.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>357</y>
+      <w>300</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>main::PickLevel
+--
+-arrow: Image
+-page = 1: int
+~levels = { new Rectangle(50, 200, 75, 75), new Rectangle(150, 200, 75, 75), new Rectangle(250, 200, 75, 75), new Rectangle(350, 200, 75, 75) }: Rectangle[]
+~arrows = { new Rectangle(5, Frame.HEIGHT - 90, 50, 50) }: Rectangle[]
+--
++PickLevel(): ctor
++tick(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>330</y>
+      <w>72</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>330</y>
+      <w>51</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;150.0;50.0;150.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>330</y>
+      <w>9</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>147</x>
+      <y>453</y>
+      <w>69</w>
+      <h>87</h>
+    </coordinates>
+    <panel_attributes>parts::Powerup
+--
++powerup: int
++bounds: Rectangle
+-x, y: int
+-width = 25: int
+-height = 25: int
++remove = false: boolean
+-speed = 2: int
+-image: Image
+--
++Powerup(int x, int y, int type): ctor
++tick(): void
++getX(): int
++getY(): int
++getWidth(): int
++getImage(): Image
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>453</y>
+      <w>87</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>parts::Ball
+--
+~loader: ImageLoader
++width = 23: int
++height = 23: int
+-x: int
+-y: int
+-dx = 0.25: double
+-dy = -6: double
+-dir = 0: int
+-speed = 5: int
++bounds: Rectangle
+-rand: Random
+-timer: Timer
++onFire = false: boolean
+-fireSec = 0: int
+--
++Ball(int x, int y, boolean onFire): ctor
++getImage(): Image
++setX(int pos): void
++setY(int pos): void
++getX(): int
++getY(): int
++setOnFire(int seconds): void
++tick(): void
++checkBrickCollision(Brick[] bricks): void
++checkPaddleCollision(Paddle paddle): void
++switchDirections(Brick brick): void
++hitPaddle(Paddle paddle): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>453</y>
+      <w>63</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>parts::Brick
+--
+~loader: ImageLoader
+-width = 50: int
+-height = 25: int
+-x: int
+-y: int
++level: int
++originalLevel: int
+-addScore = false: boolean
++dropPowerup = false: boolean
++hasDied = false: boolean
++bounds: Rectangle
+-rand: Random
+-powerup = 0: int
+--
++Brick(int x, int y, int level): ctor
++getImage(): Image
++setX(int pos): void
++setY(int pos): void
++getX(): int
++getY(): int
++getWidth(): int
++getHeight(): int
++hasCollided(): void
++destroyed(): void
++hasPowerup(): int
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>453</y>
+      <w>78</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>parts::Paddle
+--
+~loader: ImageLoader
++bounds: Rectangle
++width = 100: int
++height = 30: int
+-x: int
+-y: int
++moveSpeed = 10: int
+--
++Paddle(int x, int y): ctor
++getImage(): Image
++setX(int pos): void
++getX(): int
++getY(): int
++getWidth(): int
++getHeight(): int
++isColliding(Powerup powerup): boolean
++moveLeft(): void
++moveRight(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>330</y>
+      <w>126</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>330</y>
+      <w>255</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;330.0;830.0;330.0;830.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>330</y>
+      <w>177</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;330.0;570.0;330.0;570.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>330</y>
+      <w>126</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;330.0;300.0;330.0;300.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>222</y>
+      <w>63</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>main::Board
+--
+-serialVersionUID = 1L: long
+-PDL: Paddle
+-BALL: Ball[]
+-TILES: Brick[]
+-lives: Image
+-powerups: Powerup[]
+-gridPos = new int[8][10]: int[][]
+-score = 0: int
+-GStarted = false: boolean
+-debug = false: boolean
+-livesLeft = 2: int
+-NOofBALLS = 1: int
+-ALLBRICKS = 0: int
+-level: int
+--
++Board(int level): ctor
++init(): void
++tick(): void
++render(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>378</x>
+      <y>327</y>
+      <w>84</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>files::Files
+--
+--
++SaveProgress(boolean[] scores): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>453</y>
+      <w>453</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>files::Level
+--
++MAX_LEVEL = 3: int
++levels = new int[4][4][9]: int[][][]
++lockedLevels = new boolean[MAX_LEVEL + 1]: boolean[]
+-level0 = { { 3, 0, 3, 0, 2, 0, 3, 0, 3, 0 }, { 1, 1, 1, 3, 0, 3, 1, 1, 1, 0 }, { 2, 0, 2, 0, 3, 0, 2, 0, 2, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }: int[][]
+-level1 = { { 0, 3, 4, 3, 0, 3, 4, 3, 0, 0 }, { 2, 4, 2, 0, 2, 0, 2, 4, 2, 0 }, { 4, 0, 3, 1, 3, 1, 3, 0, 4, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }: int[][]
+-level2 = { { 2, 3, 4, 1, 5, 1, 4, 3, 2, 0 }, { 4, 4, 2, 1, 2, 4, 4, 3, 3, 0 }, { 1, 2, 1, 1, 3, 3, 1, 1, 2, 0 }, { 4, 3, 2, 1, 5, 1, 2, 3, 4, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }: int[][]
+-level3 = { { 6, 5, 4, 3, 2, 3, 4, 5, 6, 0 }, { 2, 3, 4, 5, 6, 5, 4, 3, 2, 0 }, { 4, 2, 4, 0, 5, 0, 4, 2, 4, 0 }, { 0, 6, 0, 0, 7, 0, 0, 6, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }: int[][]
+--
++getLevel(int level): int[][]
++fillLevels(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>408</y>
+      <w>123</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;390.0;70.0;390.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>309</y>
+      <w>114</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;100.0;150.0;100.0;150.0;10.0;360.0;10.0;360.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>297</y>
+      <w>66</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>handlers::KeyHandler
+--
++LEFT = false: boolean
++RIGHT = false: boolean
++UP = false: boolean
+--
++KeyHandler(): ctor
++keyTyped(KeyEvent e): void
++keyPressed(KeyEvent e): void
++keyReleased(KeyEvent e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>555</x>
+      <y>282</y>
+      <w>78</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>handlers::MouseHandler
+--
++MOUSEDOWN = false: boolean
++hasPressed = false: boolean
+--
++MouseHandler(): ctor
++mouseClicked(MouseEvent e): void
++mouseEntered(MouseEvent e): void
++mouseExited(MouseEvent e): void
++mousePressed(MouseEvent e): void
++mouseReleased(MouseEvent e): void
++mouseDragged(MouseEvent e): void
++mouseMoved(MouseEvent e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>279</y>
+      <w>210</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;200.0;150.0;200.0;150.0;110.0;490.0;110.0;490.0;10.0;680.0;10.0;680.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>270</y>
+      <w>294</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;230.0;150.0;230.0;150.0;140.0;490.0;140.0;490.0;10.0;960.0;10.0;960.0;40.0</additional_attributes>
+  </element>
+</diagram>

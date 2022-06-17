@@ -1,0 +1,10 @@
+BI
+Bimage3.jpg
+H1 aqua center
+My Hobby:
+para aqua center
+My hobby is programming.
+H4 white center
+Click Back to return on Main Page.
+Link Back center
+"Index.html"

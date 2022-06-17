@@ -1,0 +1,16 @@
+BI
+Background image.jpg
+H2 White center
+Hi Guys I am Natesh Kumar.
+IMG 280 330 center
+Natesh.jpg
+Quote Yellow center
+Success is not final, failure is not fatal: it is the courage to continue that counts.
+H2 Navy center
+Click The Link Buttons To Learn More About Me!
+Link about center
+"About.html"
+Link HOBBY center
+"Hobby.html"
+Link School center
+"School.html"
